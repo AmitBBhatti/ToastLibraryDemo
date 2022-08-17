@@ -8,7 +8,7 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
-
+import com.example.toastlibrary.CameraActivity
 
 
 class MainActivity : Activity() {
@@ -47,8 +47,8 @@ class MainActivity : Activity() {
             )
             return;
         } else {
-          /*  var intent=Intent(MainActivity@this,CameraActivity::class.java)
-            startActivity(intent)*/
+            var intent=Intent(MainActivity@this,CameraActivity::class.java)
+            startActivity(intent)
         }
     }
 
