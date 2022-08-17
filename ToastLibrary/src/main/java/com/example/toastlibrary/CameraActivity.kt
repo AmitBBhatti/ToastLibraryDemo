@@ -22,7 +22,8 @@ class CameraActivity : AppCompatActivity() {
         val btnPhoto = findViewById<Button>(R.id.btnPhoto)
         image = findViewById<ImageView>(R.id.image)
         btnPhoto.setOnClickListener {
-            locationPermission()
+           // locationPermission()
+            startCamera()
         }
 
 
@@ -53,16 +54,10 @@ class CameraActivity : AppCompatActivity() {
             )
             return;
         } else {
-            val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-
-            // Start the activity with camera_intent,
-            // and request pic id
-
-            // Start the activity with camera_intent,
-            // and request pic id
-            startActivityForResult(camera_intent, pic_id)
+           startCamera()
         }
     }
+
 
     override fun onRequestPermissionsResult(
         requestCode: Int, permissions: Array<String>,
@@ -89,5 +84,9 @@ class CameraActivity : AppCompatActivity() {
             image.setImageBitmap(data!!.getExtras()!!.get("data") as Bitmap?)
         }
     }
+    fun startCamera(){
+        val camera_intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
 
+        startActivityForResult(camera_intent, pic_id)
+    }
 }
